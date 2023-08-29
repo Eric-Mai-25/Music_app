@@ -1,13 +1,13 @@
 class User < ApplicationRecord
     before_validation :ensure_session_token
-    validates :email, presece: true, uniqueness: true
-    validates :password_digest, presece: true
+    validates :email, presence: true, uniqueness: true
+    validates :password_digest, presence: true
     validates :password, length: {minimum:6}, allow_nil: true
     attr_reader :password
 
     def self.finy_by_credentials(email,password)
-        user = User.find_by(email: email)
-        if &user.is_password?(password)
+        @user = User.find_by(email: email)
+        if @user && @user.is_password?(password)
             user
         else
             nil

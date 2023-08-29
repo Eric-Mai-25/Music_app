@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    background-color: salmon;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.login{
+    display:flex;
+    justify-content: right;
+}
+
+a{
+    background-color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 5px;
+}
