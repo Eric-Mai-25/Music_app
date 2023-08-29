@@ -1,0 +1,20 @@
+Bands Index Page
+<br>
+
+<ul>
+  <a href='<%= new_band_url %>'> Register a band </a>
+  <br>
+  <br>
+  <% @bands.each do |band| %>
+  <li>
+    <%= render 'partial', bandname: band %>
+  </li>
+  <br>
+  <a href="<%= band_url(band) %>">Show Band</a>
+  <form action='<%= band_url(band) %>' method='POST'>
+  <input type='hidden' name='_method' value='DELETE'>
+  <input type='submit' value='Delete Band'>
+  </form>
+  <% end %>
+</ul>
+

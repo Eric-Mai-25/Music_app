@@ -13,8 +13,8 @@
     <h1 class='title'>MusicApp</h1>
       <div class='login'>
       <% if logged_in? %>
-        <h1> Welcome <%current_user.username %> </h1>
-        <form action='<% session_url%>' method='POST'>
+        <h1> Welcome <%= current_user.email %> </h1>
+        <form action='<%= session_url %>' method='POST'>
           <input type='hidden' name='_method' value='DELETE'>
           <input type='submit' value='Logout'>
         </form>

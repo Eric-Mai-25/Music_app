@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
     def create
         @user = User.finy_by_credentials(params[:user][:email], params[:user][:password])
         if @user
-            login!
-            redirect users_url
+            login!(@user)
+            redirect_to bands_url
         else
             flash.now[:errors] = ['Not user found with that username or password']
             render user_url(@user)
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
     def destroy
         logout!
-        redirect users_url
+        redirect_to bands_url
     end
 end

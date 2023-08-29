@@ -1,0 +1,18 @@
+<table>
+    <td>
+    <tr>
+     <%= render 'partial', bandname: @band %>
+     </tr>
+    </td>
+    <td>
+    <tr>
+        <a href="<%= edit_band_url(@band) %>">Change Name</a>
+    </tr>
+    <tr>
+        <form action='<%= band_url %>' method='POST'>
+          <input type='hidden' name='_method' value='DELETE'>
+          <input type='submit' value='Delete Band'>
+        </form>
+    </tr>
+    </td>
+</table>

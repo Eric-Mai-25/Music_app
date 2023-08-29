@@ -6,8 +6,8 @@ class User < ApplicationRecord
     attr_reader :password
 
     def self.finy_by_credentials(email,password)
-        @user = User.find_by(email: email)
-        if @user && @user.is_password?(password)
+        user = User.find_by(email: email)
+        if user && user.is_password?(password)
             user
         else
             nil
@@ -21,8 +21,8 @@ class User < ApplicationRecord
     end
 
     def is_password?(password)
-        pass_obj = BCrypt::Password.new(password)
-        pass_obg.is_password?(password)
+        pass_obj = BCrypt::Password.new(self.password_digest)
+        pass_obj.is_password?(password)
     end
     
     def reset_session_token!
